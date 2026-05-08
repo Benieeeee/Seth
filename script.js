@@ -155,7 +155,7 @@ if (overlay && passInput && passBtn) {
       overlay.classList.add('hidden');
       document.body.classList.remove('locked');
       passError.classList.remove('show');
-      
+
       setTimeout(() => {
         overlay.style.display = 'none';
       }, 800);
