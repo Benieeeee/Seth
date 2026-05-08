@@ -15,6 +15,20 @@
 
 <body>
 
+  <!-- Passcode Overlay -->
+  <div id="passcode-overlay" class="passcode-overlay">
+    <div class="passcode-container">
+      <div class="passcode-icon">🍵</div>
+      <h2 class="passcode-title">Catcpha ko toh wala kang magagawa...</h2>
+      <p class="passcode-hint">password moto hahaha</p>
+      <div class="passcode-input-group">
+        <input type="password" id="passcodeInput" placeholder="Password..." />
+        <button id="passcodeBtn">→</button>
+      </div>
+      <p id="passcodeError" class="passcode-error">lala di alam password nya (pass mo sa gmail)</p>
+    </div>
+  </div>
+
   <!-- Floating Petals -->
   <div class="petals-container" id="petals"></div>
 
@@ -161,7 +175,7 @@
               <span class="voice-duration" id="voiceDuration">0:00</span>
             </div>
             <p class="media-hint">
-            <audio id="voiceAudio" src="BoiceMassage.mp3"></audio>
+              <audio id="voiceAudio" src="BoiceMassage.mp3"></audio>
           </div>
 
           <div class="highlight-line">

@@ -135,3 +135,46 @@ if (voiceAudio && voicePlayBtn) {
     voiceDur.textContent = '0:00';
   });
 }
+
+// ── Passcode Logic ──
+const correctPasscode = "sethseth07"; // <--- CHANGE THIS TO YOUR SECRET PASSWORD
+const overlay = document.getElementById('passcode-overlay');
+const passInput = document.getElementById('passcodeInput');
+const passBtn = document.getElementById('passcodeBtn');
+const passError = document.getElementById('passcodeError');
+const passContainer = document.querySelector('.passcode-container');
+
+if (overlay && passInput && passBtn) {
+  // Lock body initially
+  document.body.classList.add('locked');
+
+  function checkPasscode() {
+    const value = passInput.value.trim().toLowerCase();
+    if (value === correctPasscode.toLowerCase()) {
+      // Correct!
+      overlay.classList.add('hidden');
+      document.body.classList.remove('locked');
+      passError.classList.remove('show');
+      
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 800);
+    } else {
+      // Incorrect!
+      passError.classList.add('show');
+      passContainer.classList.add('shake');
+      setTimeout(() => {
+        passContainer.classList.remove('shake');
+      }, 400);
+      passInput.value = '';
+      passInput.focus();
+    }
+  }
+
+  passBtn.addEventListener('click', checkPasscode);
+  passInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      checkPasscode();
+    }
+  });
+}
